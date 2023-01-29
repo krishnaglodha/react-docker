@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+
+before_install: 
+  - docker build -t krishnaglodha/react-docker -f Dockerfile.dev  .
+
+script: 
+  - docker run krishnaglodha/react-docker npm run test -- --coverage
